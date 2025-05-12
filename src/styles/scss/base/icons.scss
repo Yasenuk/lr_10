@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'icons';
+  src:  url('../../fonts/icons.eot?d7i82t');
+  src:  url('../../fonts/icons.eot?d7i82t#iefix') format('embedded-opentype'),
+    url('../../fonts/icons.ttf?d7i82t') format('truetype'),
+    url('../../fonts/icons.woff?d7i82t') format('woff'),
+    url('../../fonts/icons.svg?d7i82t#icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calendar-days-solid:before {
+  content: "\e900";
+}
+.icon-gauge-solid:before {
+  content: "\e901";
+}
+.icon-stats:before {
+  content: "\e902";
+}

@@ -1,0 +1,108 @@
+@use "sass:math";
+
+@import "./base/fonts";
+@import "./base/icons";
+@import "./base/mixines";
+
+@import "./base/null";
+@import "./base/color-palette";
+
+// ########### Option ################
+
+$fontFamily: Arial;
+$fontSize: toRem(14); // Розмір шрифту сторінки
+
+// Основні кольори
+$mainColor: #000; // Колір шрифту за замовчуванням
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+
+// Ширина полотна (макету)
+$maxWidth: 1920;
+
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1170;
+
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: toEm(
+	$containerWidth
+); // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: toEm(991.98); // Планшети, деякі телефони в горизонтальному положенні
+$mobile: toEm(767.98); // Телефони L
+$mobileSmall: toEm(479.98); // Телефони S
+
+// ###################################
+
+// ########### Main ################
+
+._locked {
+	overflow: hidden;
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	font-family: $fontFamily;
+	@supports (overflow: clip) {
+		overflow: clip;
+	}
+	// Притискаємо footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фікс для слайдерів
+	> * {
+		min-width: 0;
+	}
+}
+
+// Контейнер
+
+[class*="container"] {
+	margin: 0 auto;
+
+	@if ($maxWidthContainer> 0) {
+		max-width: toRem($containerWidth);
+	} @else {
+		@if ($containerPadding> 0) {
+			padding: 0 toRem(math.div($containerPadding, 2));
+		}
+	}
+
+	@media (max-width: $pc) {
+		max-width: toRem(970);
+	}
+
+	@media (max-width: $tablet) {
+		max-width: toRem(750);
+	}
+
+	@media (max-width: $mobile) {
+		max-width: none;
+
+		@if ($containerPadding > 0 and $maxWidthContainer > 0) {
+			padding: 0 toRem(math.div($containerPadding, 2));
+		}
+	}
+}
+
+// #################################
+
+@import "base";
+
+@import "./common/common";
+
+@import "./common/header";
+@import "./common/footer";
+
+@import "./common/page";

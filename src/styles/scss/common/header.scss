@@ -1,0 +1,21 @@
+.header {
+	z-index: 1;
+	background: #fff;
+	box-shadow: 0 1px 5px #00000088;
+
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		position: relative;
+		padding-top: toRem(30);
+		padding-bottom: toRem(30);
+	}
+
+	&__title {
+		margin-right: toRem(20);
+	}
+
+	&__menu {
+	}
+}

@@ -1,0 +1,14 @@
+// Тут підключаються всі компоненти та заготовки
+
+@import "./components/burger-menu";
+// @import "./components/3d";
+
+%center {
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+}
+
+%no_select {
+	user-select: none;
+}

@@ -1,0 +1,67 @@
+.wrapper-3d {
+	width: 100%;
+	min-height: 500px;
+	perspective: 3000px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__cube {
+		width: 100%;
+		height: 100%;
+		transform-style: preserve-3d;
+		transform-origin: center;
+		position: relative;
+		transform: rotateX(-30deg) rotateY(45deg);
+	}
+}
+
+.cube {
+	$size-side: 200;
+
+	&__side {
+		aspect-ratio: 1 / 1;
+		width: toRem($size-side);
+		position: absolute;
+		@extend %center;
+		transform-origin: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+
+		._back-hide & {
+			backface-visibility: hidden;
+		}
+
+		&_front {
+			transform: translateZ(toRem(math.div($size-side, 2)));
+		}
+
+		&_back {
+			transform: rotateY(180deg) translateZ(toRem(math.div($size-side, 2)));
+		}
+
+		&_left {
+			transform: rotateY(-90deg) translateZ(toRem(math.div($size-side, 2)));
+		}
+
+		&_right {
+			transform: rotateY(90deg) translateZ(toRem(math.div($size-side, 2)));
+		}
+
+		&_top {
+			transform: rotateX(90deg) translateZ(toRem(math.div($size-side, 2)));
+		}
+
+		&_bottom {
+			transform: rotateX(-90deg) translateZ(toRem(math.div($size-side, 2)));
+		}
+	}
+}

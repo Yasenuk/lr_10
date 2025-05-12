@@ -1,0 +1,41 @@
+//Підключення шрифту
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src:
+			url("../fonts/#{$file_name}.woff2") format("woff2"),
+			url("../fonts/#{$file_name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+//Percent
+@function percent($px, $from: 100) {
+	$result: math.div($px, $from) * 100%;
+	@return $result;
+}
+
+//REM
+@function toRem($px, $current: 16) {
+	$result: math.div($px, $current) + rem;
+	@return $result;
+}
+
+//EM
+@function toEm($px, $current: 16) {
+	$result: math.div($px, $current) + em;
+	@return $result;
+}
+
+//Adaptive
+@function adaptive($startSize, $minSize, $widthFrom: 1200, $widthTo: 320) {
+  $slope: ($startSize - $minSize) / ($widthFrom - $widthTo);
+  $yIntersection: -$widthTo * $slope + $minSize;
+  @return clamp(
+    #{toRem($minSize)},
+    #{toRem($yIntersection)} + #{$slope * 100}vw,
+    #{toRem($startSize)}
+  );
+}
