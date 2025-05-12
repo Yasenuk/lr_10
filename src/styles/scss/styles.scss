@@ -1,15 +1,15 @@
 @use "sass:math";
 
+@import "./base/mixines";
 @import "./base/fonts";
 @import "./base/icons";
-@import "./base/mixines";
 
 @import "./base/null";
 @import "./base/color-palette";
 
 // ########### Option ################
 
-$fontFamily: Arial;
+$fontFamily: "Raleway";
 $fontSize: toRem(14); // Розмір шрифту сторінки
 
 // Основні кольори
@@ -52,7 +52,7 @@ $mobileSmall: toEm(479.98); // Телефони S
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	font-family: $fontFamily;
+	font-family: $fontFamily, sans-serif;
 	@supports (overflow: clip) {
 		overflow: clip;
 	}

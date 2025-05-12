@@ -3,9 +3,7 @@
 	@font-face {
 		font-family: $font_name;
 		font-display: swap;
-		src:
-			url("../fonts/#{$file_name}.woff2") format("woff2"),
-			url("../fonts/#{$file_name}.woff") format("woff");
+		src: url("../../fonts/#{$file_name}.ttf") format("truetype");
 		font-weight: #{$weight};
 		font-style: #{$style};
 	}
@@ -31,11 +29,11 @@
 
 //Adaptive
 @function adaptive($startSize, $minSize, $widthFrom: 1200, $widthTo: 320) {
-  $slope: ($startSize - $minSize) / ($widthFrom - $widthTo);
-  $yIntersection: -$widthTo * $slope + $minSize;
-  @return clamp(
-    #{toRem($minSize)},
-    #{toRem($yIntersection)} + #{$slope * 100}vw,
-    #{toRem($startSize)}
-  );
+	$slope: ($startSize - $minSize) / ($widthFrom - $widthTo);
+	$yIntersection: -$widthTo * $slope + $minSize;
+	@return clamp(
+		#{toRem($minSize)},
+		#{toRem($yIntersection)} + #{$slope * 100}vw,
+		#{toRem($startSize)}
+	);
 }

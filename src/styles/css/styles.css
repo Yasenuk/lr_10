@@ -1,4 +1,25 @@
 @font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../../fonts/Raleway/Raleway-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../../fonts/Raleway/Raleway-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../../fonts/Raleway/Raleway-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
   font-family: "icons";
   src: url("../../fonts/icons.eot?d7i82t");
   src: url("../../fonts/icons.eot?d7i82t#iefix") format("embedded-opentype"), url("../../fonts/icons.ttf?d7i82t") format("truetype"), url("../../fonts/icons.woff?d7i82t") format("woff"), url("../../fonts/icons.svg?d7i82t#icons") format("svg");
@@ -112,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: Arial;
+  font-family: "Raleway", sans-serif;
 }
 @supports (overflow: clip) {
   .wrapper {
